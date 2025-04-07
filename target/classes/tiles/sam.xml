@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="baseLayout" template="/WEB-INF/views/layout.jsp">
+      <put-attribute name="title" value=""/>
+      <put-attribute name="top" value="/WEB-INF/views/top.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
+   </definition>
+   <!-- 필요한 JSP 화일들을 반드시 등록 -->
+   <definition name="main" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+   </definition> 
+  
+  <!-- 게시판에서 글 올리기 위해 등록 -->
+   <definition name="binput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/binput.jsp"/>
+   </definition> 
+   <!-- 게시판에서 글 출력 위해 등록 -->
+   <definition name="bout" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/bout.jsp"/>
+   </definition>  
+   <!-- 게시판에서 자세히보기  위해 등록 -->
+   <definition name="detailview" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/detailview.jsp"/>
+   </definition>  
+  <!-- 게시판에서 댓글  위해 등록 -->
+   <definition name="reply" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/reply.jsp"/>
+   </definition>   
+   
+    <definition name="sanginput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/sang/sanginput.jsp"/>
+   </definition>   
+   
+    <definition name="sangout" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/sang/sangout.jsp"/>
+   </definition>   
+   
+    <definition name="sangdelete" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/sang/sangdelete.jsp"/>
+   </definition>   
+   
+    <definition name="sangupdate" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/sang/sangupdate.jsp"/>
+   </definition>   
+   
+    <definition name="searchview" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/sang/searchview.jsp"/>
+   </definition> 
+   
+    <definition name="memberinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/member/memberinput.jsp"/>
+   </definition>  
+    <definition name="memberinput" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/member/memberinput.jsp"/>
+   </definition>    
+    <definition name="login" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/login/login.jsp"/>
+   </definition>   
+   
+     <definition name="board2input" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board2/board2input.jsp"/>
+   </definition>  
+   
+    <definition name="board2out" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board2/board2out.jsp"/>
+   </definition>    
+   
+    <definition name="detailview2" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board2/detailview2.jsp"/>
+   </definition>   
+   
+   <definition name="reply2" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board2/reply2.jsp"/>
+   </definition>  
+   
+   <definition name="mapgo" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board2/mapgo.jsp"/>
+   </definition>   
+</tiles-definitions>
+
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.koh10.sang.SangService">
+<insert id="inserts">
+insert into sang0402 values(sang0402_seq.nextval,#{param1},#{param2})
+</insert>
+
+<select id="allout" resultType="com.mbc.koh10.sang.SangDTO">
+select * from sang0402
+</select>
+
+<select id="delete1" resultType="com.mbc.koh10.sang.SangDTO">
+select * from sang0402 where snum=#{param1}
+</select>
+
+<delete id="delete2">
+delete from sang0402 where snum=#{param1}
+</delete>
+
+<select id="update1" resultType="com.mbc.koh10.sang.SangDTO">
+select * from sang0402 where snum=#{param1}
+</select>
+<update id="update2">
+update sang0402 set sname=#{param2},simage=#{param3} where snum=#{param1}
+</update>
+
+<select id="search1" resultType="com.mbc.koh10.sang.SangDTO">
+select * from sang0402 where sname like '%' || #{param1} || '%'
+</select>
+
+
+</mapper>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.koh10.board.BoardService">
+<insert id="insertboard">
+   insert into board  
+   values(board_seq.nextval,#{param2},#{param1},#{param3},sysdate,0,board_seq.currval,0,0)
+</insert>
+<select id="boardallout" resultType="com.mbc.koh10.board.BoardDTO">
+select boardnumber,boardtitle,boardwriter,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+,boardreadcnt,groups,step,indent from board 
+order by groups desc,step asc
+</select>
+<update id="readcntup">
+ update board set boardreadcnt = boardreadcnt + 1 where boardnumber=#{param1}
+</update>
+<select id="detail" resultType="com.mbc.koh10.board.BoardDTO">
+select boardnumber,boardtitle,boardwriter,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+,boardreadcnt,groups,step,indent from board  where boardnumber=#{param1}
+
+</select>
+<select id="dtodata" resultType="com.mbc.koh10.board.BoardDTO">
+select boardnumber,boardtitle,boardwriter,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+,boardreadcnt,groups,step,indent from board  where boardnumber=#{param1}
+</select>
+<insert id="appendc">
+insert into board values(board_seq.nextval,#{param2},#{param3},#{param4},sysdate,0,#{param5},#{param6},#{param7})
+</insert>
+<update id="stetup">
+update board set step = step+1 where groups=#{param1} and step > #{param2}
+
+</update>
+
+</mapper>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.koh10.board2.Board2Service">
+<insert id="insertb">
+insert into board2 values(board2seq.nextval,#{param1},#{param2},#{param3},sysdate,0,board2seq.currval,0,0)
+</insert>
+
+<select id="allout" resultType="com.mbc.koh10.board2.Board2DTO">
+select boardnumber,boardtitle,boardwriter,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+,boardreadcnt,groups,step,indent from board2 
+order by groups desc,step asc
+</select>
+<update id="readcntup">
+ update board2 set boardreadcnt = boardreadcnt + 1 where boardnumber=#{param1}
+</update>
+<select id="detail" resultType="com.mbc.koh10.board2.Board2DTO">
+select boardnumber,boardtitle,boardwriter,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+,boardreadcnt,groups,step,indent from board2  where boardnumber=#{param1}
+
+</select>
+
+<select id="data" resultType="com.mbc.koh10.board2.Board2DTO">
+select boardnumber,boardtitle,boardwriter,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+,boardreadcnt,groups,step,indent from board2  where boardnumber=#{param1}
+</select>
+
+<insert id="appendc">
+insert into board2 values(board_seq.nextval,#{param2},#{param3},#{param4},sysdate,0,#{param5},#{param6},#{param7})
+</insert>
+
+<update id="stetup"> <!-- 댓글달때 기존 댓글의 step값을 조정하여 새로운 댓글이 올바른 위치에 삽입되도록 함 -->
+update board2 set step = step+1 
+where groups=#{param1} and step > #{param2}
+</update> <!-- 같은 groups 안에서 기존 step이 현재 추가할 step보다 큰 경우, 1 증가 -->
+
+<!--  44444444 -->
+<!-- 페이징처리에서 전체레코드수 구하기 -->
+<select id="total" resultType="int">
+   select count(*)from BOARD2
+</select>
+
+<select id="page" resultType="com.mbc.koh10.board2.Board2DTO">
+   select * from (
+   select rownum rn,A.* from(  
+   select boardnumber,boardwriter,boardtitle,boardcontent,to_char(boarddate,'yyyy-MM-dd')boarddate
+   ,boardreadcnt,groups,step,indent from board2 order by groups DESC,step asc)A)
+   where rn between #{start} AND #{end}
+</select>
+<!--  444444 -->
+
+
+
+</mapper>
+

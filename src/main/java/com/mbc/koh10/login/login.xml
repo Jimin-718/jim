@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.mbc.koh10.login.loginService">
+     <select id="pwselect" resultType="String">
+        select pw from member0402 where id=#{param1}
+    </select>
+    
+    
+    </mapper>
